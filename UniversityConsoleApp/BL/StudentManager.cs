@@ -5,9 +5,8 @@ namespace UniversityConsoleApp.BL
     public class StudentManager
     {
         const short maxAge = 139;
-        public Student Create(string firstName, string lastName, int age)
-            => new Student(firstName, lastName, age);
-        public Student[] Create(int count, int minAge)
+        public static Student Create(string firstName, string lastName, int age) => new Student(firstName, lastName, age);
+        public static Student[] Create(int count, int minAge)
         {
             Student[] students = new Student[count];
             Random rnd = new Random();
@@ -18,7 +17,7 @@ namespace UniversityConsoleApp.BL
             return students;
         }
 
-        public void Print(Student student)
+        public static void Print(Student student)
         {
             Console.WriteLine("**********  Student   **********");
             Console.WriteLine($"id:{student._id} name:{student._firstName} lastName:{student._lastName} age:{student._age}");
@@ -29,7 +28,7 @@ namespace UniversityConsoleApp.BL
             Console.WriteLine();
         }
 
-        public void Print(Student[] students)
+        public static void Print(Student[] students)
         {
             for (int i = 0; i < students.Length; i++) Print(students[i]);
         }

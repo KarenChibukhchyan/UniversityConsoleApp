@@ -7,15 +7,11 @@ namespace UniversityConsoleApp
     {
         static void Main(string[] args)
         {
-            StudentManager studentManager = new StudentManager();
-            TeacherManager teacherManager = new TeacherManager();
-            UniversityManager universityManager = new UniversityManager();
+            Student[] students = StudentManager.Create(21,18);
+            StudentManager.Print(students);
 
-            Student[] students = studentManager.Create(21,18);
-            studentManager.Print(students);
-
-            Teacher[] teachers = teacherManager.Create(5, 19);
-            teacherManager.Print(teachers);
+            Teacher[] teachers = TeacherManager.Create(5, 19);
+            TeacherManager.Print(teachers);
 
             Console.WriteLine();
             Console.WriteLine();
@@ -23,8 +19,8 @@ namespace UniversityConsoleApp
             Console.WriteLine();
             Console.WriteLine();
 
-            universityManager.SwapWithStudents(teachers, students);
-            teacherManager.Print(teachers);
+            UniversityManager.SwapWithStudents(teachers, students);
+            TeacherManager.Print(teachers);
 
             Console.WriteLine();
             Console.WriteLine();
@@ -32,8 +28,8 @@ namespace UniversityConsoleApp
             Console.WriteLine();
             Console.WriteLine();
 
-            universityManager.SwapWithTeachers(students, teachers);
-            studentManager.Print(students);
+            UniversityManager.SwapWithTeachers(students, teachers);
+            StudentManager.Print(students);
 
 
         }
