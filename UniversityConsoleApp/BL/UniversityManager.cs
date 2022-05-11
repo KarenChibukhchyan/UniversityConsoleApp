@@ -9,16 +9,16 @@ namespace UniversityConsoleApp.BL
             int lastStCount = minStCount + students.Length % teachers.Length;
             for (int i = 0; i < teachers.Length-1; i++)
             {
-                teachers[i]._students = new Student[minStCount];
+                teachers[i].Students = new Student[minStCount];
                 for (int j = 0; j < minStCount; j++)
                 {
-                    teachers[i]._students[j] = students[i*minStCount +j];
+                    teachers[i].Students[j] = students[i*minStCount +j];
                 }
             }
-            teachers[teachers.Length - 1]._students = new Student[lastStCount];
+            teachers[teachers.Length - 1].Students = new Student[lastStCount];
             for (int i = 0 ; i < lastStCount; i++)
             {
-                teachers[teachers.Length - 1]._students[i] = students[minStCount*(teachers.Length - 1) + i];
+                teachers[teachers.Length - 1].Students[i] = students[minStCount*(teachers.Length - 1) + i];
             }
             return teachers;
         }
@@ -40,7 +40,7 @@ namespace UniversityConsoleApp.BL
         }
         public static Teacher SwapWithStudent(Teacher teacher,Student[] students)
         {
-            teacher._students = students;
+            teacher.Students = students;
             return teacher;
         }
 

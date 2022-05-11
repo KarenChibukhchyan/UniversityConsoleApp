@@ -25,13 +25,13 @@ namespace UniversityConsoleApp.BL
         {
             Console.WriteLine("**********  Teacher  **********");
             Console.WriteLine($"id:{teacher.ID} name:{teacher.FirstName} lastName:{teacher.LastName} age:{teacher.Age}");
-            if (teacher._students == null) Console.WriteLine("This teacher does not have students!");
+            if (teacher.Students == null) Console.WriteLine("This teacher does not have students!");
             else
             {
                 Console.WriteLine("Students of this teache:");
-                for (int i = 0; i < teacher._students.Length; i++)
+                for (int i = 0; i < teacher.Students.Length; i++)
                 {
-                    Console.WriteLine($"id:{teacher._students[i].ID} name:{teacher._students[i].FirstName} lastName:{teacher._students[i].LastName} age:{teacher._students[i].Age}");
+                    Console.WriteLine($"id:{teacher.Students[i].ID} name:{teacher.Students[i].FirstName} lastName:{teacher.Students[i].LastName} age:{teacher.Students[i].Age}");
                 }
             }
             Console.WriteLine();
