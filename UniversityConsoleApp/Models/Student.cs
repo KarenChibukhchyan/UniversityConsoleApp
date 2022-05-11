@@ -1,25 +1,26 @@
-﻿using System;
-
-namespace UniversityConsoleApp.Models
+﻿namespace UniversityConsoleApp.Models
 {
-    public class Student
+    public class Student: Person
     {
         public Student()
         {
 
         }
 
-        public Student(string firstName,string lastName,int age)
+        public Student(string firstName,string lastName,int age) : base(firstName, lastName, age)
         {
-            _id = Guid.NewGuid();
-            _firstName = firstName;
-            _lastName = lastName;
-            _age = age;
         }
-        public Guid _id;
-        public string _firstName;
-        public string _lastName;
-        public int _age;
-        public Teacher _teacher;
+        public Teacher Teacher { set; get; }
+        public Group Group { set; get; }
+
+        public Student(string firstName,string lastName,int age, Teacher teacher) : base(firstName, lastName, age)
+        {
+            Teacher = teacher;
+        }
+        public Student(string firstName,string lastName,int age, Teacher teacher, Group group_) : base(firstName, lastName, age)
+        {
+            Teacher = teacher;
+            Group = group_;
+        }
     }
 }

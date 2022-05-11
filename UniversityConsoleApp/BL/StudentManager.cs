@@ -20,11 +20,11 @@ namespace UniversityConsoleApp.BL
         public static void Print(Student student)
         {
             Console.WriteLine("**********  Student   **********");
-            Console.WriteLine($"id:{student._id} name:{student._firstName} lastName:{student._lastName} age:{student._age}");
-            if (student._teacher == null)
+            Console.WriteLine($"id:{student.ID} name:{student.FirstName} lastName:{student.LastName} age:{student.Age}");
+            if (student.Teacher == null)
                 Console.WriteLine("This student does not have a teacher!");
             else
-                Console.WriteLine($"Teacher of this student: id:{student._teacher._id} name:{student._teacher._firstName} lastName:{student._teacher._lastName} age:{student._teacher._age}");
+                Console.WriteLine($"Teacher of this student: id:{student.Teacher.ID} name:{student.Teacher.FirstName} lastName:{student.Teacher.LastName} age:{student.Teacher.Age}");
             Console.WriteLine();
         }
 

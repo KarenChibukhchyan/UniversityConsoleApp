@@ -26,14 +26,14 @@ namespace UniversityConsoleApp.BL
 
         public static Student SwapWithTeacher(Student student,Teacher teacher)
         {
-            student._teacher = teacher;
+            student.Teacher = teacher;
             return student;
         }
         public static Student[] SwapWithTeachers(Student[] students, Teacher[] teachers)
         {
             for (int i = 0; i < students.Length; i++)
             {
-                students[i]._teacher = teachers[i % teachers.Length];
+                students[i].Teacher = teachers[i % teachers.Length];
             }
 
             return students;

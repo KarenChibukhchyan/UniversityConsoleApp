@@ -24,14 +24,14 @@ namespace UniversityConsoleApp.BL
         public static void Print(Teacher teacher)
         {
             Console.WriteLine("**********  Teacher  **********");
-            Console.WriteLine($"id:{teacher._id} name:{teacher._firstName} lastName:{teacher._lastName} age:{teacher._age}");
+            Console.WriteLine($"id:{teacher.ID} name:{teacher.FirstName} lastName:{teacher.LastName} age:{teacher.Age}");
             if (teacher._students == null) Console.WriteLine("This teacher does not have students!");
             else
             {
                 Console.WriteLine("Students of this teache:");
                 for (int i = 0; i < teacher._students.Length; i++)
                 {
-                    Console.WriteLine($"id:{teacher._students[i]._id} name:{teacher._students[i]._firstName} lastName:{teacher._students[i]._lastName} age:{teacher._students[i]._age}");
+                    Console.WriteLine($"id:{teacher._students[i].ID} name:{teacher._students[i].FirstName} lastName:{teacher._students[i].LastName} age:{teacher._students[i].Age}");
                 }
             }
             Console.WriteLine();
