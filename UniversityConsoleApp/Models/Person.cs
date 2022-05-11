@@ -8,7 +8,7 @@ namespace UniversityConsoleApp.Models
         {
         }
 
-        public Person(string firstName, string lastName, int age) : base()
+        public Person(string firstName, string lastName, int age)
         {
             FirstName = firstName;
             LastName = lastName;
@@ -17,6 +17,12 @@ namespace UniversityConsoleApp.Models
 
         public string FirstName { get; }
         public string LastName { get; }
-        public int Age { get; }
+        int _age;
+
+        public int Age
+        {
+            get => _age;
+            set => _age = 10 < value && value < 99 ? value : throw new ArgumentException("Invalid age range");
+        }
     }
 }
