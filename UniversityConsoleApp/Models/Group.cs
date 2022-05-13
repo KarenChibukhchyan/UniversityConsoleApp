@@ -2,7 +2,7 @@ namespace UniversityConsoleApp.Models
 {
     public class Group : BaseModel
     {
-        public string Name { get; }
+        public string Name { get; set; }
         public Group()
         {
         }

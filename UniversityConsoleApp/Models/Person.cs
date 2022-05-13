@@ -15,8 +15,8 @@ namespace UniversityConsoleApp.Models
             Age = age;
         }
 
-        public string FirstName { get; }
-        public string LastName { get; }
+        public string FirstName { get; set; }
+        public string LastName { get; set; }
         int _age;
 
         public int Age
