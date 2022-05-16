@@ -3,24 +3,23 @@ using UniversityConsoleApp.Models;
 
 namespace UniversityConsoleApp.BL
 {
-    public class StudentManager : BaseManager
+    public class StudentManager : IManager, IPrint
     {
-        const short maxAge = 139;
-        public override Person Create(string firstName, string lastName, int age) => new Student(firstName, lastName, age);
+        public Person Create(string firstName, string lastName, int age) => new Student(firstName, lastName, age);
 
-        public override Person[] Create(int count, int minAge)
+        public Person[] Create(int count, int minAge)
         {
             Student[] students = new Student[count];
             Random rnd = new Random();
             for (int i = 0; i < students.Length; i++)
             {
-                students[i] = new Student($"name{i}", $"surName{i}", rnd.Next(minAge, maxAge));
+                students[i] = new Student($"name{i}", $"surName{i}", rnd.Next(minAge, IManager.maxAge));
             }
 
             return students;
         }
 
-        public override void Print(Person person)
+        public void Print(Person person)
         {
             Console.WriteLine("**********  Student   **********");
             Console.WriteLine($"id:{person.ID} name:{person.FirstName} lastName:{person.LastName} age:{person.Age}");
@@ -36,7 +35,7 @@ namespace UniversityConsoleApp.BL
             Console.WriteLine();
         }
 
-        public override void Print(Person[] persons)
+        public void Print(Person[] persons)
         {
             for (int i = 0; i < persons.Length; i++) Print(persons[i]);
         }
