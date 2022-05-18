@@ -1,19 +1,20 @@
 ﻿using System;
+using System.Collections.Generic;
 using UniversityConsoleApp.Models;
 
 namespace UniversityConsoleApp.BL
 {
-    public class TeacherManager : IManager, IPrint
+    public class TeacherManager : IManager<Teacher>, IPrint<Teacher>
     {
-        public Person Create(string firstName, string lastName, int age) => new Teacher(firstName, lastName, age);
+        public Teacher Create(string firstName, string lastName, int age) => new Teacher(firstName, lastName, age);
 
-        public Person[] Create(int count, int minAge)
+        public List<Teacher> Create(int count, int minAge)
         {
-            Teacher[] teachers = new Teacher[count];
+            List<Teacher> teachers = new List<Teacher>(count);
             Random rnd = new Random();
-            for (int i = 0; i < teachers.Length; i++)
+            for (int i = 0; i < teachers.Count; i++)
             {
-                teachers[i] = new Teacher($"name{i}", $"surName{i}", rnd.Next(minAge, IManager.maxAge));
+                teachers.Add(new Teacher($"name{i}", $"surName{i}", rnd.Next(minAge, IManager<Teacher>.maxAge)));
             }
 
             return teachers;

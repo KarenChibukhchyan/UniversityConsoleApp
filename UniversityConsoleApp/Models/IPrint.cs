@@ -1,8 +1,10 @@
+using System.Collections.Generic;
+
 namespace UniversityConsoleApp.Models
 {
     public interface IPrint
     {
         void Print(Person person);
-        void Print(Person[] persons);
+        void Print(List<Person> persons);
     }
 }
