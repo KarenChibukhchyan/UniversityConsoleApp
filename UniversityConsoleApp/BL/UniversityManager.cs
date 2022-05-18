@@ -1,44 +1,48 @@
-﻿using UniversityConsoleApp.Models;
+﻿using System.Collections.Generic;
+using UniversityConsoleApp.Models;
 namespace UniversityConsoleApp.BL
 {
     public class UniversityManager
     {
-        public static Teacher[] SwapWithStudents(Teacher[] teachers,Student[] students)
+        public static List<Person> SwapWithStudents(List<Person> teachers,List<Person> students)
         {
-            int minStCount = students.Length / teachers.Length;
-            int lastStCount = minStCount + students.Length % teachers.Length;
-            for (int i = 0; i < teachers.Length-1; i++)
+            int minStCount = students.Count / teachers.Count;
+            int lastStCount = minStCount + students.Count % teachers.Count;
+            for (int i = 0; i < teachers.Count-1; i++)
             {
-                teachers[i].Students = new Student[minStCount];
+                Teacher teacher = (Teacher)teachers[i];
+                teacher.Students = new List<Student>(minStCount);
                 for (int j = 0; j < minStCount; j++)
                 {
-                    teachers[i].Students[j] = students[i*minStCount +j];
+                    teacher.Students.Add((Student)students[i*minStCount +j]);
                 }
             }
-            teachers[teachers.Length - 1].Students = new Student[lastStCount];
+            ((Teacher)teachers[^1]).Students = new List<Student>(lastStCount);
             for (int i = 0 ; i < lastStCount; i++)
             {
-                teachers[teachers.Length - 1].Students[i] = students[minStCount*(teachers.Length - 1) + i];
+                Teacher teacher = (Teacher)teachers[teachers.Count - 1];
+                teacher.Students.Add((Student)students[minStCount*(teachers.Count - 1) + i]);
             }
             return teachers;
         }
 
 
-        public static Student SwapWithTeacher(Student student,Teacher teacher)
+        public static Person SwapWithTeacher(Student student,Teacher teacher)
         {
             student.Teacher = teacher;
             return student;
         }
-        public static Student[] SwapWithTeachers(Student[] students, Teacher[] teachers)
+        public static List<Person> SwapWithTeachers(List<Person> students, List<Person> teachers)
         {
-            for (int i = 0; i < students.Length; i++)
+            for (int i = 0; i < students.Count; i++)
             {
-                students[i].Teacher = teachers[i % teachers.Length];
+                Student student = (Student)students[i];
+                student.Teacher = (Teacher)teachers[i % teachers.Count];
             }
 
             return students;
         }
-        public static Teacher SwapWithStudent(Teacher teacher,Student[] students)
+        public static Teacher SwapWithStudent(Teacher teacher,List<Student> students)
         {
             teacher.Students = students;
             return teacher;

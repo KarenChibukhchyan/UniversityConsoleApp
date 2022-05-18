@@ -7,5 +7,7 @@
         <Nullable>disable</Nullable>
         <LangVersion>9</LangVersion>
     </PropertyGroup>
-
+    <ItemGroup>
+      <Folder Include="Properties" />
+    </ItemGroup>
 </Project>

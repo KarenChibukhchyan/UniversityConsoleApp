@@ -22,7 +22,7 @@ namespace UniversityConsoleApp.Models
         public int Age
         {
             get => _age;
-            set => _age = 10 < value && value < 99 ? value : throw new ArgumentException("Invalid age range");
+            set => _age = 10 < value && value < IManager.maxAge ? value : throw new ArgumentException("Invalid age range");
         }
     }
 }

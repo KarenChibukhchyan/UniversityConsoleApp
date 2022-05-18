@@ -4,6 +4,6 @@ namespace UniversityConsoleApp.Models
 {
     public class BaseModel
     {
-        public Guid ID { get; } = new Guid();
+        public Guid ID { get; } = Guid.NewGuid();
     }
 }

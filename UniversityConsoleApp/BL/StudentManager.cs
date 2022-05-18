@@ -12,20 +12,21 @@ namespace UniversityConsoleApp.BL
         {
             List<Person> students = new List<Person>(count);
             Random rnd = new Random();
-            for (int i = 0; i < students.Count; i++)
+            for (int i = 0; i < count; i++)
             {
-                students.Add(new Student($"name{i}", $"surName{i}", rnd.Next(minAge, IManager<Student>.maxAge)));
+                students.Add(new Student($"name{i}", $"surName{i}", rnd.Next(minAge, IManager.maxAge)));
             }
 
             return students;
         }
 
-        public void Print(Student student)
+        public void Print(Person person)
         {
-            Console.WriteLine("**********  Student   **********");
-            Console.WriteLine($"id:{student.ID} name:{student.FirstName} lastName:{student.LastName} age:{student.Age}");
-            if (student is Student)
+            if (person is Student)
             {
+                Console.WriteLine("**********  Student   **********");
+                Console.WriteLine($"id:{person.ID} name:{person.FirstName} lastName:{person.LastName} age:{person.Age}");
+                Student student = (Student) person;
                 if (student.Teacher == null)
                     Console.WriteLine("This student does not have a teacher!");
                 else
@@ -36,7 +37,7 @@ namespace UniversityConsoleApp.BL
             Console.WriteLine();
         }
 
-        public void Print(List<Student> students)
+        public void Print(List<Person> students)
         {
             for (int i = 0; i < students.Count; i++) Print(students[i]);
         }

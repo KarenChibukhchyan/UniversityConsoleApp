@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using UniversityConsoleApp.BL;
 using UniversityConsoleApp.Models;
 namespace UniversityConsoleApp
@@ -8,11 +9,11 @@ namespace UniversityConsoleApp
         static void Main(string[] args)
         {
             StudentManager studentManager = new StudentManager();
-            Student[] students = (Student[])studentManager.Create(21,18);
+            List<Person> students = studentManager.Create(21,18);
             studentManager.Print(students);
 
             TeacherManager teacherManager = new TeacherManager();
-            Teacher[] teachers = (Teacher[])teacherManager.Create(5, 19);
+            List<Person> teachers = teacherManager.Create(5, 19);
             teacherManager.Print(teachers);
 
             Console.WriteLine();
